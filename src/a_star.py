@@ -10,7 +10,7 @@ from src.open_list import OpenList
 from src.utils import manhattan_heuristic
 
 
-class Maze:
+class AStar:
 
     def __init__(self, grid: list[list[Block]], start: Block, end: Block):
         self.grid = grid
@@ -19,9 +19,11 @@ class Maze:
         self.open_list = OpenList(self.start)
         self.found = False
         self.path: list[Block] = []
-        self.current: Block = self.open_list.get_priority()
+        self.current: Block = None
 
     def backtrack(self):
+        """Backtrack to the start of the maze to find the path
+        """        
         self.path = []
         temp = self.current
         self.path.append(temp)
@@ -30,10 +32,12 @@ class Maze:
             temp = temp.prev
 
     def find(self):
+        """Find the shortest path in a maze from start position to end position
+        """        
         size = self.open_list.size()
+        self.current = self.open_list.get_priority()
         # self.current.h = manhattan_heuristic(self.current, self.end)
         # self.current.f = self.current.g + self.current.h
-        self.current = self.open_list.get_priority()
         if size != 0:
             if self.current == self.end:
                 self.found = True

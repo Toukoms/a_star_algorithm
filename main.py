@@ -1,6 +1,6 @@
 import pygame
 from pygame.constants import *
-from src.maze import Maze
+from src.a_star import AStar
 from src.constant import GRID10x10, GRID20x20, GRID40x40, GRID60x60
 from src.utils import ascci_to_grid, initialise
 
@@ -14,7 +14,7 @@ SIZE = 640//ROW
 WIDTH = SIZE * COL
 HEIGHT = SIZE * ROW
 
-labyrinth = Maze(grid, start, end)
+a_star = AStar(grid, start, end)
 timer = pygame.time.Clock()
 
 def show_gird():
@@ -39,7 +39,7 @@ run = True
 
 while run:
     
-    for block in labyrinth.open_list.all:
+    for block in a_star.open_list.all:
         pygame.draw.rect(window, pygame.color.THECOLORS["green"], block.to_rect(SIZE))
         
     for row in grid:
@@ -53,10 +53,10 @@ while run:
     # draw the start position
     pygame.draw.rect(window, pygame.color.THECOLORS["aqua"], start.to_rect(SIZE))
     
-    if not labyrinth.found:
-        labyrinth.find()
+    if not a_star.found:
+        a_star.find()
     else:
-        for block in labyrinth.path:
+        for block in a_star.path:
             pygame.draw.rect(window, pygame.color.THECOLORS["blue"], block.to_rect(SIZE))
         # run = False
     

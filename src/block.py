@@ -1,5 +1,5 @@
 """
-Object to represent a cell in the maze grid
+ Object to represent a cell in the maze grid
 
  Author: Toky
  Starting date: 16-04-2023

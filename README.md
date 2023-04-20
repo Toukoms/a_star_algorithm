@@ -3,7 +3,10 @@ This is a Python implementation of the A* algorithm, a popular pathfinding algor
 
 ## Screenshots
 
-![image](./a_start_image.png))
+<div style="display:flex;justify-content:space-evenly;">
+<img src="./a_start_image_1.png" alt="image_1" width="45%"/>
+<img src="./a_start_image_2.png" alt="image_2" width="45%"/>
+</div>
 
 ## Run Locally
 
@@ -25,7 +28,7 @@ Install requirements
 pip install -r requirements.txt
 ```
 
-Launch a star algorithm
+Visualize A* algorithm
 
 ```bash
 python main.py

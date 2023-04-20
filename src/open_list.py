@@ -1,11 +1,9 @@
 """
-Queue to store accessible blocks
+ Queue to store accessible blocks
 
  Author: Toky
  Starting date: 16-04-2023
 """
-
-import heapq
 
 from src.block import Block
 
